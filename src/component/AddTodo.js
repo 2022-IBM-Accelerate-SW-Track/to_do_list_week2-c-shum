@@ -7,7 +7,9 @@ class AddTodo extends Component {
     super();
     this.state = {
       content: "",
+      date : "",
     };
+    
   }
   // The handleChange function updates the react state with the new input value provided from the user.
   // "event" is the defined action a user takes. In this case, the event is triggered when the user types something
@@ -15,8 +17,10 @@ class AddTodo extends Component {
   handleChange = (event) => {
     this.setState({
       content: event.target.value,
+      date : Date().toLocaleString('en-US'),
     });
-  };
+  }
+
   // The handleSubmit function collects the forms input and puts it into the react state.
   // event.preventDefault() is called to prevents default event behavior like refreshing the browser.
   // this.props.addTodo(this.state) passes the current state (or user input) into the addTodo function defined
@@ -27,8 +31,9 @@ class AddTodo extends Component {
       this.props.addTodo(this.state);
       this.setState({
         content: "",
+        date : "",
       });
-    }
+    };
   };
   render() {
     return (
